@@ -39,7 +39,7 @@ Installation:
 
 Method: 1
 
-git clone https://github.com/anj411/shoponline.git
+git clone https://github.com/yamanss01/ShopOnline
 
 cd shoponline
 
