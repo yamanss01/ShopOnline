@@ -35,25 +35,21 @@ import com.shoponline.service.ProductService;
 public class AdminController {
 
 	private Logger log = LoggerFactory.getLogger(AdminController.class.getName());
-
 	/**
 	 * this service class handle operation linked to Products
 	 */
 	@Autowired
 	ProductService productService;
-
 	/**
 	 * this service class handle operation linked to Categories
 	 */
 	@Autowired
 	CategoryService categoryService;
-
 	/**
 	 * this service class handle operation linked to Menus
 	 */
 	@Autowired
 	MenuService menuService;
-
 	/**
 	 * this method will generate some menu on application startup so Admin User can
 	 * get views having some Menu's
@@ -62,7 +58,6 @@ public class AdminController {
 	public void initMenu() {
 		menuService.initMenu();
 	}
-
 	/**
 	 * this api when called returns view for Admin Home Panel
 	 * 
@@ -71,7 +66,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin")
 	public ModelAndView adminHome() {
-		log.info("Exceution of adminHome: api started");
+		log.info("Execution of adminHome: api started");
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName("admin/adminHome");
 		return modelView;
@@ -85,13 +80,12 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/menus")
 	public ModelAndView getMenus() {
-		log.info("Exceution of getMenus: api started");
+		log.info("Execution of getMenus: api started");
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName("/admin/menus.html");
 		modelView.addObject("menus", menuService.getAllMenu());
 		return modelView;
 	}
-
 	/**
 	 * This api when called return view for Categories
 	 * 
@@ -100,11 +94,11 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/categories")
 	public ModelAndView getCategories() {
-		log.info("Exceution of getCategories: api started");
+		log.info("Execution of getCategories: api started");
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName("/admin/categories.html");
 		modelView.addObject("categories", categoryService.getAllCategory());
-		log.info("Exceution of getCategories: api stopped");
+		log.info("Execution of getCategories: api stopped");
 		return modelView;
 	}
 
@@ -116,7 +110,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/categories/add")
 	public ModelAndView getAddCategory() {
-		log.info("Exceution of getAddCategory: api started");
+		log.info("Execution of getAddCategory: api started");
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName("/admin/categoriesAdd.html");
 		modelView.addObject("categoryDTO", new CategoryDTO());
@@ -136,11 +130,10 @@ public class AdminController {
 	public String postAddCategory(@ModelAttribute("categoryDTO") CategoryDTO categoryDTO,
 			@RequestParam("categoryImage") MultipartFile file, @RequestParam("imgName") String imgName)
 			throws Exception {
-		log.info("Exceution of postAddCategory: api started");
+		log.info("Execution of postAddCategory: api started");
 		categoryService.addCategory(categoryDTO, file, imgName);
 		return "redirect:/admin/categories";
 	}
-
 	/**
 	 * This api when called deleted the category & redirects admin to category page
 	 * 
@@ -150,7 +143,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/categories/delete/{categoryId}")
 	public String deleteCategory(@PathVariable int categoryId) {
-		log.info("Exceution of deleteCategory: api started");
+		log.info("Execution of deleteCategory: api started");
 		categoryService.removeCategoryById(categoryId);
 		return "redirect:/admin/categories";
 	}
@@ -165,7 +158,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/categories/update/{categoryId}")
 	public ModelAndView updateCategory(@PathVariable int categoryId, Model model) {
-		log.info("Exceution of updateCategory api started");
+		log.info("Execution of updateCategory api started");
 		ModelAndView modelView = new ModelAndView();
 		CategoryDTO categoryDTO = categoryService.updateCategory(categoryId);
 		modelView.setViewName("/admin/categoriesAdd.html");
@@ -184,7 +177,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/products")
 	public ModelAndView getProducts() {
-		log.info("Exceution of getProducts api Started");
+		log.info("Execution of getProducts api Started");
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName("/admin/products.html");
 		modelView.addObject("products", productService.getAllProduct());
@@ -199,7 +192,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/products/add")
 	public ModelAndView getAddProduct() {
-		log.info("Exceution of getAddProduct: api Started");
+		log.info("Execution of getAddProduct: api Started");
 		ModelAndView modelView = new ModelAndView();
 		modelView.setViewName("/admin/productAdd.html");
 		modelView.addObject("productDTO", new ProductDTO());
@@ -221,7 +214,7 @@ public class AdminController {
 	public String postAddProduct(@ModelAttribute("productDTO") ProductDTO productDTO,
 			@RequestParam("productImage") MultipartFile file, @RequestParam("imgName") String imgName)
 			throws Exception {
-		log.info("Exceution of postAddProduct: api Started");
+		log.info("Execution of postAddProduct: api Started");
 		productService.addProduct(productDTO, file, imgName);
 		return "redirect:/admin/products";
 	}
@@ -236,7 +229,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/product/delete/{id}")
 	public String deleteProduct(@PathVariable int id) {
-		log.info("Exceution of deleteProduct: api Started");
+		log.info("Execution of deleteProduct: api Started");
 		productService.removeProductById(id);
 		return "redirect:/admin/products";
 	}
@@ -250,7 +243,7 @@ public class AdminController {
 	@PreAuthorize("hasAnyRole('Admin')")
 	@GetMapping("/admin/product/update/{id}")
 	public ModelAndView getUpdateProduct(@PathVariable int id) {
-		log.info("Exceution of getUpdateProduct: api Started");
+		log.info("Execution of getUpdateProduct: api Started");
 		ModelAndView modelView = new ModelAndView();
 		ProductDTO productDTO = productService.updateProduct(id);
 

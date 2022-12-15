@@ -32,15 +32,7 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder passwordEncoder;
 
     public void initRoleAndUser() {
-
-		/*
-		 * Role adminRole = new Role(); adminRole.setRoleName("Admin");
-		 * roleService.saveRole(adminRole);
-		 * 
-		 * Role userRole = new Role(); userRole.setRoleName("User");
-		 * roleService.saveRole(userRole);
-		 */
-    	logger.info("initiallizing role and user");
+		logger.info("initiallizing role and user");
 		Role adminRole = roleService.getRoleById(1);
 		
         User adminUser = new User();
@@ -100,7 +92,7 @@ public class UserServiceImpl implements UserService {
 			users = userRepository.save(user);
 			
 		} catch (Exception ex) {
-			logger.error("Exception occured while saving new user in DB, Error : " + ex.getMessage());
+			logger.error("Exception occurred while saving new user in DB, Error : " + ex.getMessage());
 		}
 		return users;
 	}
@@ -111,7 +103,7 @@ public class UserServiceImpl implements UserService {
 		try {
 			user = userRepository.findAll();
 		} catch (Exception ex) {
-			logger.error("Exception occured while getting users from DB, Error : " + ex.getMessage());
+			logger.error("Exception occurred while getting users from DB, Error : " + ex.getMessage());
 		}
 		return user;
 	}
@@ -123,7 +115,7 @@ public class UserServiceImpl implements UserService {
 			user = userRepository.findByUserEmail(userName).get();
 			
 		} catch (Exception ex) {
-			logger.error("Exception occured while getting user by username from DB, Error : " + ex.getMessage());
+			logger.error("Exception occurred while getting user by username from DB, Error : " + ex.getMessage());
 		}
 		
 		return user;

@@ -98,38 +98,6 @@ public class HomeController {
 		return modelView;
 	}
 
-	/*
-	 * @PostMapping("/do_register") public ModelAndView
-	 * registerUser(@ModelAttribute("user") User user,
-	 * 
-	 * @RequestParam(value = "agreement", defaultValue = "false") boolean agreement,
-	 * HttpSession session) { ModelAndView modelView = new ModelAndView();
-	 * modelView.setViewName("register.html");
-	 * 
-	 * try { if (!agreement) {
-	 * System.out.println("You have not accepted terms and conditions."); throw new
-	 * Exception("You have not accepted terms and conditions."); }
-	 * 
-	 * user.setRole("USER");
-	 * user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
-	 * 
-	 * userService.save(user);
-	 * 
-	 * modelView.addObject("user", new User()); session.setAttribute("message", new
-	 * Message("Successfully registered !!", "alert-success"));
-	 * 
-	 * return modelView; } catch (Exception e) { e.printStackTrace();
-	 * modelView.addObject("user", user); session.setAttribute("message", new
-	 * Message("Something went wrong !! " + e.getMessage(), "alert-danger")); return
-	 * modelView; } }
-	 */
-
-	/*
-	 * @RequestMapping("/signin") public ModelAndView login() { ModelAndView
-	 * modelView = new ModelAndView(); modelView.setViewName("login.html");
-	 * modelView.addObject("title", "Login - Online Shopping"); return modelView; }
-	 */
-
 	/**
 	 * This api when called returns view Menu page.
 	 * 
@@ -197,17 +165,6 @@ public class HomeController {
 		modelAndView.addObject("categories", category);
 		return modelAndView;
 	}
-
-	/*
-	 * @GetMapping("/{menuId}") public ModelAndView menu(@PathVariable int menuId) {
-	 * ModelAndView modelView = new ModelAndView();
-	 * modelView.setViewName("category.html"); Menu menu =
-	 * menuService.getMenuById(menuId); List<Category> category =
-	 * menu.getCategories(); List<Product> products =
-	 * productService.getAllProduct(); modelView.addObject("categories", category);
-	 * modelView.addObject("products", products); modelView.addObject("menu", menu);
-	 * return modelView; }
-	 */
 
 	/**
 	 * This api when called returns view for selected product's page.
@@ -313,7 +270,6 @@ public class HomeController {
 		modelAndView.addObject("shipAddress", shippingAddress);
 		return modelAndView;
 	}
-
 	/**
 	 * This api when called returnrs view for Order Confirmation Page
 	 * 

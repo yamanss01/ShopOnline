@@ -21,7 +21,6 @@ public class JwtCookieUtil {
 	public static final String ACCESS_TOKEN_COOKIE_NAME = "access-token";
     public static final String ID_TOKEN_COOKIE_NAME = "id-token";
     public static final String REFRESH_TOKEN_COOKIE_NAME = "refresh-token";
- 
     /**
      * This method when called will return Id token cookie from http request.
      * @param request
@@ -30,7 +29,6 @@ public class JwtCookieUtil {
     public static Optional<Cookie> getIdTokenCookie(HttpServletRequest request){
         return getTokenCookieByName(request, ID_TOKEN_COOKIE_NAME);
     }
-    
     /**
      * This method when called will return Refresh token cookie from http request.
      * @param request
@@ -46,7 +44,6 @@ public class JwtCookieUtil {
         }
         return Arrays.stream(request.getCookies()).filter(a -> a.getName().equals(tokenCookieName)).findFirst();
     }
-    
     /**
      * This method when called will add all token cookies to http response.
      * @param attr
@@ -57,7 +54,6 @@ public class JwtCookieUtil {
         addTokenCookie(attr, idTokenValue, ID_TOKEN_COOKIE_NAME);
         addTokenCookie(attr, refreshTokenValue, REFRESH_TOKEN_COOKIE_NAME);
     }
-    
     /**
      * This method when called will add Token cookies to Http Header and response.
      * @param argAttr
@@ -80,7 +76,6 @@ public class JwtCookieUtil {
             response.addCookie(newCookie);
         }
     }
-    
     /**
      * This method when called will clear All three cookies from Http Header.
      * @param attr
@@ -90,7 +85,6 @@ public class JwtCookieUtil {
         clearTokenCookie(attr, REFRESH_TOKEN_COOKIE_NAME);
         clearTokenCookie(attr, ACCESS_TOKEN_COOKIE_NAME);
     }
-    
     /**
      * This method when called will clear Token cookie from Http Header.
      * @param argAttr
