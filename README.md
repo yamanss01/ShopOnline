@@ -22,7 +22,7 @@ Technologies Used :
 
 
 
-Since the world is moving fast and everything is available on fingertips, we have also tried to make an E-Commerce website called SHOP-ONLINE. Here users can register themselves and can order products after a successful Register. The website also has an admin panel from where the CATEGORIES, MENUS and PRODUCTS can be managed, with a user friendly interface. The admin can manage categories, can add or remove products. Admin can also manage the stock of the products from the Panel. There are different categories and menus so that the users can navigate easily.
+Since the world is moving fast and everything is available on fingertips, we have also tried to make an E-Commerce website called SHOP-ONLINE. Here users can register themselves and can order products after a successful registration. The website also has an admin panel from where the CATEGORIES, MENUS and PRODUCTS can be managed, with a user friendly interface. The admin can manage categories, can add or remove products. Admin can also manage the stock of the products from the Panel. There are different categories and menus so that the users can navigate easily.
 
 When you make something where users can come in and register, security is very Important. We have tried our best to ensure the security of the users and admins.The Security Layers have been designed in a way that the user data is not exposed and could not fall prey to attackers and hackers.
 
@@ -41,13 +41,13 @@ Method: 1
 
 git clone https://github.com/yamanss01/ShopOnline
 
-cd shoponline
+cd ShopOnline
 
 mvn clean install
 
 cd target
 
-java -jar shoponline.2.7.5.jar
+java -jar ShopOnline.2.7.5.jar
 
 Method 2 
 
