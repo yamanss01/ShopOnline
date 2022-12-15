@@ -24,12 +24,12 @@ public interface ProductService {
     /**
      * this service operation will add the passed product
      * and will return the same product.
-     * @param product
+     * @param productDTO
      * @param file
      * @param imgName
      * @return
      */
-    public Product addProduct(ProductDTO productdto, MultipartFile file, String imgName) throws Exception;
+    public Product addProduct(ProductDTO productDTO, MultipartFile file, String imgName) throws Exception;
 
     /**
      * this service operation when called will delete

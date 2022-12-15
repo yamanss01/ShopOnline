@@ -34,11 +34,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	/*
-	 * @PostConstruct public void initRoleAndUser() { userService.initRoleAndUser();
-	 * }
-	 */
-
 	/**
 	 * This api when called returns view of registration page.
 	 * 

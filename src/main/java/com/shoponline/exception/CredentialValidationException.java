@@ -10,7 +10,6 @@ public class CredentialValidationException extends Exception{
 
 	@Override
 	public String getMessage() {
-		// TODO Auto-generated method stub
 		return this.exceptionMessage;
 	}
 }

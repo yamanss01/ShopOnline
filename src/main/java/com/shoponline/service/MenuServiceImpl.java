@@ -13,9 +13,8 @@ import com.shoponline.model.Menu;
 
 @Service
 public class MenuServiceImpl implements MenuService {
-	
+
 	private Logger logger = LoggerFactory.getLogger(MenuServiceImpl.class.getName());
-	
 	@Autowired
 	MenuRepository menuRepository;
 	
@@ -26,7 +25,7 @@ public class MenuServiceImpl implements MenuService {
 			menuList = menuRepository.findAll();
 			
 		} catch (Exception ex) {
-			logger.error("Exception occured while getting menus list from DB, Error : " + ex.getMessage());
+			logger.error("Exception occurred while getting menus list from DB, Error : " + ex.getMessage());
 		}
 
 		return menuList;
@@ -51,13 +50,13 @@ public class MenuServiceImpl implements MenuService {
 			menu = menuRepository.findById(menuId).get();
 			
 		} catch(Exception ex) {
-			logger.error("Exception occured while getting menu by menuId from DB, Error : " + ex.getMessage());
+			logger.error("Exception occurred while getting menu by menuId from DB, Error : " + ex.getMessage());
 		}
 		return menu;
 	}
 	
 	public void initMenu(){
-		logger.info("initiallizing menus");				
+		logger.info("initializing menus");
 		Menu men = new Menu();
 		
 		try {
@@ -66,7 +65,7 @@ public class MenuServiceImpl implements MenuService {
 			addMenu(men);
 			
 		} catch(Exception ex) {
-			logger.error("Exception occured while initiallizing men menus, Error : " + ex.getMessage());
+			logger.error("Exception occurred while initializing men menus, Error : " + ex.getMessage());
 		}
 				
 		Menu women = new Menu();
@@ -77,7 +76,7 @@ public class MenuServiceImpl implements MenuService {
 			addMenu(women);
 			
 		} catch(Exception ex) {
-			logger.error("Exception occured while initiallizing women menus, Error : " + ex.getMessage());
+			logger.error("Exception occurred while initializing women menus, Error : " + ex.getMessage());
 		}
 		
 		
@@ -89,7 +88,7 @@ public class MenuServiceImpl implements MenuService {
 			addMenu(kids);
 			
 		} catch(Exception ex) {
-			logger.error("Exception occured while initiallizing kids menus, Error : " + ex.getMessage());
+			logger.error("Exception occurred while initializing kids menus, Error : " + ex.getMessage());
 		}
 		
 		
@@ -101,7 +100,7 @@ public class MenuServiceImpl implements MenuService {
 			addMenu(homeLiving);
 			
 		} catch(Exception ex) {
-			logger.error("Exception occured while initiallizing homeLiving menus, Error : " + ex.getMessage());
+			logger.error("Exception occurred while initializing homeLiving menus, Error : " + ex.getMessage());
 		}
 		
 	}

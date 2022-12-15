@@ -19,8 +19,6 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint{
 			AuthenticationException authException) throws IOException, ServletException {
 		String encodedRedirectURL = ((HttpServletResponse) response).encodeRedirectURL(
 				request.getContextPath() + "/signin");
-
-		//response.setStatus(HttpStatus.TEMPORARY_REDIRECT);
 		response.setHeader("Location", encodedRedirectURL);
 		response.sendRedirect(encodedRedirectURL);
 		

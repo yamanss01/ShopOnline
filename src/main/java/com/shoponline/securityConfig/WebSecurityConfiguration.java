@@ -3,6 +3,7 @@ package com.shoponline.securityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -29,14 +30,14 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
     private JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    private UserDetailServiceImpl jwtService;
+    private UserDetailServiceImpl userDetailService;
 
-    @Bean
     @Override
+    @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-    
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors();
@@ -86,14 +87,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Override
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(jwtService).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userDetailService).passwordEncoder(passwordEncoder());
 	}
 	
-	/*
-	 * @Autowired public void configureGlobal(AuthenticationManagerBuilder
-	 * authenticationManagerBuilder) throws Exception {
-	 * authenticationManagerBuilder.userDetailsService(jwtService).passwordEncoder(
-	 * passwordEncoder()); }
-	 */
-	 
 }

@@ -1,15 +1,13 @@
 package com.shoponline.securityConfig;
-
 import java.io.IOException;
 import java.util.Optional;
-
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,11 +15,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import com.shoponline.service.UserDetailServiceImpl;
 import com.shoponline.util.JwtCookieUtil;
 import com.shoponline.util.JwtUtil;
-
 import io.jsonwebtoken.ExpiredJwtException;
 
 /**
@@ -33,18 +29,17 @@ import io.jsonwebtoken.ExpiredJwtException;
  */
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
-
 	/**
 	 * this service class handles operation linked to Jwt Utils
 	 */
 	@Autowired
 	private JwtUtil jwtUtil;
 
-	/*
+	/**
 	 * This service class handles operation linked to User
 	 */
 	@Autowired
-	private UserDetailServiceImpl jwtService;
+	private UserDetailServiceImpl userDetailService;
 
 	/**
 	 * This service class handle operation linked to store and delete jwt token to browser cookie
@@ -78,7 +73,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
 		if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-			UserDetails userDetails = jwtService.loadUserByUsername(username);
+			UserDetails userDetails = userDetailService.loadUserByUsername(username);
 
 			if (jwtUtil.validateToken(tokenCookie.get().getValue(), userDetails)) {
 
