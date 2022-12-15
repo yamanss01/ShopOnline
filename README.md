@@ -55,3 +55,23 @@ The zip file can be downloaded as well from code tab above the project file on t
 
 <img width="1440" alt="Screenshot 2022-12-13 at 3 46 52 PM" src="https://user-images.githubusercontent.com/102300250/207292552-471f08b4-43f6-4dab-af16-a16a02c284c0.png">
 
+
+
+
+Urls Accessible for Admins Only
+http://localhost:8080/admin
+http://localhost:8080/admin/categories
+http://localhost:8080/admin/categories/add
+http://localhost:8080/admin/products/add
+http://localhost:8080/admin/menu
+
+Admin Login Credentials:
+Username : admin123@gmail.com
+password : admin@pass
+
+Users can register themselves.
+
+
+
+
+
