@@ -1,7 +1,6 @@
 package com.shoponline.dao;
 
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -11,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.shoponline.model.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID>{
+public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	/**
 	 * This function will return a User,
