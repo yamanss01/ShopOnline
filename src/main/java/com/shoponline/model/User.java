@@ -30,7 +30,7 @@ public class User implements Serializable{
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private UUID userId;
+	private int userId;
 	
 	/**
 	 * this variable will hold the User first name
@@ -74,11 +74,11 @@ public class User implements Serializable{
 	private Set<Role> role;
 
 	
-	public UUID getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(UUID userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 
