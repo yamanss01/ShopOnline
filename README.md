@@ -59,14 +59,22 @@ The zip file can be downloaded as well from code tab above the project file on t
 
 
 Urls Accessible for Admins Only
+
 http://localhost:8080/admin
+
 http://localhost:8080/admin/categories
+
 http://localhost:8080/admin/categories/add
+
 http://localhost:8080/admin/products/add
+
 http://localhost:8080/admin/menu
 
+
 Admin Login Credentials:
+
 Username : admin123@gmail.com
+
 password : admin@pass
 
 Users can register themselves.
